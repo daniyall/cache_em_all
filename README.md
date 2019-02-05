@@ -71,7 +71,7 @@ from cache_em_all import Cachable
 
 @Cachable("add.json", folder="/mnt/ram/fastcache")
 def add(x, y):
-    return x + x
+    return x + y
 ```
 
 ### Disable cache
@@ -81,6 +81,6 @@ from cache_em_all import Cachable
 
 @Cachable("add.json", use=False)
 def add(x, y):
-    return x + x
+    return x + y
 ```
 This can be useful for debugging or optmizing the function.
