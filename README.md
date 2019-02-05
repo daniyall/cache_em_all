@@ -65,7 +65,7 @@ Now next time the function is called it will invalidate the cache and re-run the
 Do not use this feature in multi-processing code because the writes to the version file do not (yet) use locks.
 
 ### Folder
-By default all cached files are stored in a folder called `cache`. This can be changed by passing `folder` to `Cachable`.
+By default all cached files are stored in a folder called `cache`. This can be changed for each function by passing `folder` to `Cachable`.
 ```python
 from cache_em_all import Cachable
 
@@ -73,6 +73,17 @@ from cache_em_all import Cachable
 def add(x, y):
     return x + y
 ```
+
+You can also change the default cache dir so that all cache files are by default saved elsewhere.
+```python
+from cache_em_all import Cachable, set_cache_dir
+set_cache_dir("/mnt/huge_hdd")
+
+@Cachable("add.json")
+def add(x, y):
+    return x + y
+```
+
 
 ### Disable cache
 You can also disable the cache by setting `use` to `False`. 
