@@ -35,7 +35,7 @@ Various file types are supported.
 |-----|---|
 | csv | Uses pandas to save the result in a csv file. The return value for the function must be a DataFrame or Series. |
 | json| Saves the result in a json file. Useful for lists, dictionaries and primitive types. |
-| pkl | Pickles the return value. Return type can be just about anything. May not work well for large (>~2GB files) |
+| pkl | Pickles the return value. Return type can be just about anything. May not work well for large (>~2GB) files |
 | pa | Uses pyarrow to save files. This is generally faster than pkl and supports larger files (tested up to 50GB) |
 
 ### Versioning
