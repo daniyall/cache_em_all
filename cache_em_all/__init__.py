@@ -6,8 +6,12 @@ import pandas as pd
 import pyarrow as pa
 
 
-cache_folder = "cache"
+default_cache_dir = "cache"
 
+
+def set_cache_dir(new_dir):
+    global default_cache_dir
+    default_cache_dir = new_dir
 
 def _ensure_dir(path):
     if not os.path.isdir(path):
@@ -23,16 +27,21 @@ def _write_json_file(f, data):
         json.dump(data, jsonFile)
 
 class Cachable(object):
-    def __init__(self, fname, folder=cache_folder, use=True, version=0):
+    def __init__(self, fname, folder=None, use=True, version=0):
         self.fname = fname
         self.ext = self._get_extension()
 
-        _ensure_dir(folder)
-        self.path = os.path.join(folder, fname)
+        if folder is None:
+            self.folder = default_cache_dir
+        else:
+            self.folder = folder
+
+        _ensure_dir(self.folder)
+        self.path = os.path.join(self.folder, fname)
         self.use_cache = use
         self.version = version
 
-        self.version_file = os.path.join(folder, "versions.json")
+        self.version_file = os.path.join(self.folder, "versions.json")
         if not os.path.isfile(self.version_file):
             _write_json_file(self.version_file, {})
 
