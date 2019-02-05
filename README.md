@@ -50,7 +50,7 @@ def add(x, y):
     return x + x
 ```
 
-This is incorrect, but you've run this function multiple times and there are lots of cached results. Rather than manually deleting
+This is a bug (should be `x+y`, not `x+x`), but you've run this function multiple times and there are lots of cached results. Rather than manually deleting
 the cache folder, you can bump the version number (version numbers start at 0). 
 
 ```python
@@ -58,7 +58,7 @@ from cache_em_all import Cachable
 
 @Cachable("add.json", version=1)
 def add(x, y):
-    return x + x
+    return x + y
 ```
 Now next time the function is called it will invalidate the cache and re-run the function.
 
