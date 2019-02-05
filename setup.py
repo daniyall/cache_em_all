@@ -8,7 +8,7 @@ except ImportError:
     read_md = lambda f: open(f, 'r').read()
 
 setup(
-    name = 'cache-me',
+    name = 'cache-em-all',
     packages = ['cache_em_all'],
     version = '0.2',
     description = 'A simple decorator to cache the results of functions',
