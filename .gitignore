@@ -1,0 +1,7 @@
+.idea
+.venv
+*.pyc
+dist
+MANIFEST
+build
+*.log
