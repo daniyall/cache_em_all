@@ -9,13 +9,13 @@ except ImportError:
 
 setup(
     name = 'cache-me',
-    packages = ['cache_me'],
-    version = '0.1',
+    packages = ['cache_em_all'],
+    version = '0.2',
     description = 'A simple decorator to cache the results of functions',
     author = 'daniyall',
     author_email = 'dev.daniyall@gmail.com',
-    url = 'https://github.com/daniyall/cache_me',
-    download_url = 'https://github.com/daniyall/cache_me/archive/0.1.tar.gz',
+    url = 'https://github.com/daniyall/cache_em_all',
+    download_url = 'https://github.com/daniyall/cache_em_all/archive/0.2.tar.gz',
     keywords = ['cache', 'cachable', 'save', 'intermediate'],
     classifiers = [],
     python_requires=">=3",
